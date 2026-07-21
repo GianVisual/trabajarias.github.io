@@ -1,0 +1,1501 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Propuesta TrabajarIAs | Gian Visuals</title>
+    <meta name="description" content="Propuesta de contenido y manejo de redes sociales — Gian Visuals × TrabajarIAs. Ecosistema de contenido para Instagram y TikTok.">
+    <meta name="robots" content="noindex">
+
+    <meta property="og:title" content="Propuesta Social Media | Gian Visuals × TrabajarIAs">
+    <meta property="og:description" content="90 días de contenido diseñado para posicionar TrabajarIAs en Instagram y TikTok.">
+    <meta property="og:type" content="website">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Caveat:wght@700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+
+    <style>
+        /* ============================================================
+           SISTEMA DE DISEÑO — edición TrabajarIAs
+           Paleta full-brand: azul eléctrico → cian → violeta neón
+           ============================================================ */
+        :root {
+            --bg-body: #030309;
+            --bg-surface: #0B0E1A;
+            --bg-card: rgba(15, 19, 34, 0.65);
+            --primary-gradient: linear-gradient(90deg, #38BDF8 0%, #4F7DF9 45%, #8B5CF6 100%);
+            --primary-glow: rgba(79, 125, 249, 0.45);
+            --cyan-glow: rgba(56, 189, 248, 0.35);
+            --violet-glow: rgba(139, 92, 246, 0.4);
+            --accent-soft: #93C5FD;
+            --border-light: rgba(255, 255, 255, 0.08);
+            --text-main: #FFFFFF;
+            --text-muted: #94A3B8;
+            --radius-md: 12px;
+            --radius-lg: 24px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; overflow-x: hidden; }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .ambient-light {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100vh; pointer-events: none; z-index: -1;
+            background: radial-gradient(circle at 15% 50%, rgba(79, 125, 249, 0.09) 0%, transparent 50%),
+                        radial-gradient(circle at 85% 30%, rgba(56, 189, 248, 0.08) 0%, transparent 50%);
+        }
+
+        .parallax-bg {
+            position: absolute; width: 400px; height: 400px; background: var(--primary-glow);
+            filter: blur(120px); border-radius: 50%; z-index: -1; opacity: 0.3; pointer-events: none;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .text-gradient { background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .badge { display: inline-block; padding: 4px 14px; background: rgba(79, 125, 249, 0.15); color: #93C5FD; border: 1px solid rgba(79, 125, 249, 0.35); border-radius: 20px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px; }
+
+        .reveal { opacity: 0; filter: blur(10px); transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1); will-change: transform, opacity; }
+        .reveal-up { transform: translateY(60px); }
+        .reveal-left { transform: translateX(-80px); }
+        .reveal-right { transform: translateX(80px); }
+        .reveal-scale { transform: scale(0.8); }
+        .reveal.active { opacity: 1; filter: blur(0); transform: translate(0,0) scale(1); }
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
+
+        .btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 32px; border-radius: 50px; font-weight: 600; font-size: 0.95rem; transition: var(--transition); cursor: pointer; border: 1px solid transparent; text-align: center; font-family: 'Inter', sans-serif; }
+        .btn-primary { background: var(--primary-gradient); color: #fff; box-shadow: 0 4px 20px var(--primary-glow); position: relative; z-index: 1; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px var(--primary-glow); filter: brightness(1.1); }
+        .btn-secondary { background: rgba(255,255,255,0.05); color: #fff; border: 1px solid var(--border-light); }
+        .btn-secondary:hover { background: rgba(255,255,255,0.1); }
+
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-header h2 { font-size: 2.8rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 10px; }
+        .section-header p { color: var(--text-muted); font-size: 1.1rem; }
+        .section-padding { padding: 100px 0; }
+        .eyebrow { display: block; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3em; color: var(--accent-soft); margin-bottom: 14px; }
+
+        /* ===== BARRA DE PROGRESO DE LECTURA ===== */
+        #progress-bar {
+            position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+            background: var(--primary-gradient); z-index: 2000;
+            box-shadow: 0 0 12px var(--cyan-glow);
+        }
+
+        /* ===== NAV ===== */
+        nav {
+            position: fixed; top: 0; width: 100%;
+            background: transparent; backdrop-filter: none; -webkit-backdrop-filter: none;
+            z-index: 1000; border-bottom: none; padding: 24px 0;
+            transition: background 0.3s ease, backdrop-filter 0.3s ease, padding 0.3s ease;
+        }
+        nav.scrolled {
+            background: rgba(3, 3, 9, 0.85);
+            backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+            padding: 16px 0; border-bottom: 1px solid var(--border-light);
+        }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: 800; z-index: 1001; }
+        .nav-links { display: flex; gap: 32px; align-items: center; }
+        .nav-links a { color: var(--text-muted); font-weight: 500; font-size: 0.95rem; transition: 0.2s; }
+        .nav-links a:hover { color: #fff; }
+        .nav-links .btn { padding: 11px 24px; }
+        .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; z-index: 1001; }
+
+        /* ===== HERO — cinemático a sangre completa (técnica index-cine-azul) =====
+           La foto ocupa TODO el hero. Un degradado oscurece el lado del texto y deja el
+           rostro limpio a la derecha. El "oscuro" es la propia foto atenuada (con textura
+           y tono), nunca un negro plano. Máscara + vignette = acabado cinematográfico. */
+        .hero { position: relative; min-height: 100vh; overflow: hidden; display: flex; background: var(--bg-body); }
+
+        .hero-img {
+            position: absolute; inset: 0; width: 100%; height: 100%;
+            object-fit: cover; object-position: 54% 14%;
+            filter: saturate(1.04) contrast(1.1) brightness(0.96);
+            -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 30%, #000 100%);
+            mask-image: linear-gradient(90deg, transparent 0%, #000 30%, #000 100%);
+            z-index: 1;
+        }
+        /* Halo azul detrás del rostro */
+        .hero-halo {
+            position: absolute; top: 38%; left: 60%; transform: translate(-50%, -50%);
+            width: clamp(400px, 44vw, 680px); aspect-ratio: 1 / 1; border-radius: 50%;
+            filter: blur(58px); mix-blend-mode: screen; pointer-events: none; z-index: 2;
+            background: radial-gradient(circle,
+                rgba(79, 125, 249, 0.26) 0%, rgba(56, 189, 248, 0.12) 42%, transparent 70%);
+            animation: haloPulse 7s ease-in-out infinite;
+        }
+        @keyframes haloPulse {
+            0%, 100% { opacity: 0.82; transform: translate(-50%, -50%) scale(1); }
+            50% { opacity: 1; transform: translate(-50%, -50%) scale(1.05); }
+        }
+        /* Degradado: izquierda oscura (texto legible) → transparente a la derecha (rostro limpio) */
+        .hero-shade {
+            position: absolute; inset: 0; pointer-events: none; z-index: 3;
+            background:
+                linear-gradient(to right,
+                    rgba(3,3,9,0.95) 0%, rgba(3,3,9,0.82) 15%, rgba(3,3,9,0.45) 35%,
+                    rgba(3,3,9,0.12) 52%, transparent 70%),
+                linear-gradient(to bottom,
+                    rgba(3,3,9,0.5) 0%, transparent 18%, transparent 60%, rgba(3,3,9,0.92) 100%);
+        }
+        /* Grano de película */
+        .hero-grain {
+            position: absolute; inset: 0; z-index: 3;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+            opacity: 0.05; mix-blend-mode: overlay; pointer-events: none;
+        }
+        /* Vignette cinematográfico */
+        .hero-vignette { position: absolute; inset: 0; pointer-events: none; z-index: 4; box-shadow: inset 0 0 170px 34px rgba(0,0,0,0.6); }
+
+        .hero-content {
+            position: relative; z-index: 5; width: 100%; max-width: 1400px; margin: 0 auto; min-height: 100vh;
+            display: grid; grid-template-columns: 1.02fr 0.98fr; align-items: center;
+            padding: 130px 80px 70px;
+        }
+        /* Todo el texto en la columna IZQUIERDA */
+        .hero-text { grid-column: 1; display: flex; flex-direction: column; align-items: flex-start; text-align: left; }
+        .hero-text h1 {
+            font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+            font-size: clamp(2rem, 3.4vw, 3rem);
+            line-height: 1.06; font-weight: 700; letter-spacing: -2.5px; margin: 0;
+            color: #FFFFFF; text-shadow: 0 2px 34px rgba(0, 0, 0, 0.8);
+        }
+        .hero-text h1 .muted { color: rgba(255, 255, 255, 0.3); font-weight: 600; letter-spacing: -2px; }
+        .hero-desc {
+            font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+            font-size: 0.98rem; color: rgba(255, 255, 255, 0.82);
+            margin: 22px 0 0; line-height: 1.65; max-width: 440px; font-weight: 400;
+            text-shadow: 0 1px 22px rgba(0, 0, 0, 0.75);
+        }
+        .hero-meta { margin-top: 22px; display: flex; flex-direction: column; gap: 6px; align-items: flex-start; }
+        .hero-meta span { font-size: 0.78rem; color: rgba(255,255,255,0.66); letter-spacing: 0.02em; text-shadow: 0 1px 16px rgba(0,0,0,0.85); }
+        .hero-meta strong { color: #fff; font-weight: 600; }
+        .hero-cta-row { display: flex; justify-content: flex-start; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 34px; }
+        .hero-cta-row .btn { padding: 14px 28px; font-size: 0.95rem; }
+
+        /* Chips de plataformas */
+        .platform-chips { display: flex; justify-content: flex-start; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
+        .platform-chip {
+            display: inline-flex; align-items: center; gap: 9px; padding: 8px 18px;
+            background: rgba(11, 14, 26, 0.55); border: 1px solid var(--border-light);
+            border-radius: 50px; font-size: 0.85rem; font-weight: 600; color: #E2E8F0;
+            backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+            transition: var(--transition);
+        }
+        .platform-chip i { font-size: 1.05rem; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .platform-chip:hover { border-color: rgba(79, 125, 249, 0.5); transform: translateY(-2px); }
+
+        /* Float sutil */
+        @keyframes floatA { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-6px);} }
+        @keyframes floatB { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-8px);} }
+        .hero-text h1 { animation: floatB 7s ease-in-out infinite; }
+        .reveal:not(.active) { animation: none !important; }
+
+        /* Morph tipográfico */
+        .morph-wrap { display: inline-block; position: relative; vertical-align: baseline; }
+        .morph-text {
+            display: inline-block; animation: morphCycle 12s infinite; transform-origin: left center;
+            will-change: font-family, transform, opacity, filter;
+            background: var(--primary-gradient); -webkit-background-clip: text; background-clip: text;
+            -webkit-text-fill-color: transparent; color: transparent;
+        }
+        @keyframes morphCycle {
+            0%, 18% { font-family: 'Plus Jakarta Sans', sans-serif; font-style: normal; font-weight: 700; letter-spacing: -2px; opacity: 1; filter: blur(0); transform: translateY(0); }
+            22% { opacity: 0.25; filter: blur(5px); transform: translateY(-3px); }
+            25% { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; letter-spacing: -1px; opacity: 0.25; filter: blur(5px); transform: translateY(3px); }
+            28%, 43% { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; letter-spacing: -1px; opacity: 1; filter: blur(0); transform: translateY(0); }
+            47% { opacity: 0.25; filter: blur(5px); transform: translateY(-3px); }
+            50% { font-family: 'Caveat', cursive; font-style: normal; font-weight: 700; letter-spacing: 0; opacity: 0.25; filter: blur(5px); transform: translateY(3px); }
+            53%, 68% { font-family: 'Caveat', cursive; font-style: normal; font-weight: 700; letter-spacing: 0; opacity: 1; filter: blur(0); transform: translateY(0); }
+            72% { opacity: 0.25; filter: blur(5px); transform: translateY(-3px); }
+            75% { font-family: 'JetBrains Mono', monospace; font-style: normal; font-weight: 700; letter-spacing: -2px; opacity: 0.25; filter: blur(5px); transform: translateY(3px); }
+            78%, 93% { font-family: 'JetBrains Mono', monospace; font-style: normal; font-weight: 700; letter-spacing: -2px; opacity: 1; filter: blur(0); transform: translateY(0); }
+            97% { opacity: 0.25; filter: blur(5px); transform: translateY(-3px); }
+            100% { font-family: 'Plus Jakarta Sans', sans-serif; font-style: normal; font-weight: 700; letter-spacing: -2px; opacity: 0.25; filter: blur(5px); transform: translateY(3px); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .hero-text h1, .hero-halo, .morph-text { animation: none !important; }
+        }
+
+        /* ===== SECCIÓN VIDEO SHOWCASE ===== */
+        .video-showcase {
+            position: relative;
+        }
+        .video-frame {
+            position: relative; border-radius: 28px; overflow: hidden;
+            border: 1px solid rgba(79, 125, 249, 0.35);
+            box-shadow: 0 0 90px -15px var(--primary-glow), 0 30px 60px rgba(0,0,0,0.55);
+            background: #000;
+        }
+        .video-frame::before {
+            content: ''; position: absolute; inset: 0; z-index: 2; pointer-events: none;
+            border-radius: 28px;
+            background: linear-gradient(135deg, rgba(56,189,248,0.08) 0%, transparent 30%, transparent 70%, rgba(139,92,246,0.08) 100%);
+        }
+        .video-frame video { display: block; width: 100%; height: auto; border-radius: 28px; }
+        .video-play-overlay {
+            position: absolute; inset: 0; z-index: 3; display: flex; align-items: center; justify-content: center;
+            background: rgba(3, 3, 9, 0.35); cursor: pointer; transition: opacity 0.4s ease;
+        }
+        .video-play-overlay.hidden { opacity: 0; pointer-events: none; }
+        .play-button {
+            width: 92px; height: 92px; border-radius: 50%;
+            background: var(--primary-gradient); display: flex; align-items: center; justify-content: center;
+            font-size: 1.7rem; color: #fff; padding-left: 6px;
+            box-shadow: 0 0 0 0 rgba(79, 125, 249, 0.5);
+            animation: playPulse 2.2s ease-out infinite;
+            transition: transform 0.25s ease;
+        }
+        .video-play-overlay:hover .play-button { transform: scale(1.08); }
+        @keyframes playPulse {
+            0% { box-shadow: 0 0 0 0 rgba(79, 125, 249, 0.55); }
+            70% { box-shadow: 0 0 0 28px rgba(79, 125, 249, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(79, 125, 249, 0); }
+        }
+        .video-caption {
+            display: flex; justify-content: center; gap: 12px; align-items: center; flex-wrap: wrap;
+            margin-top: 26px; color: var(--text-muted); font-size: 0.95rem;
+        }
+        .video-caption .tag {
+            padding: 5px 14px; border-radius: 20px; font-size: 0.75rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.08em;
+            background: rgba(56, 189, 248, 0.12); color: #7DD3FC; border: 1px solid rgba(56, 189, 248, 0.3);
+        }
+
+        /* ===== STATS STRIP ===== */
+        .stats-strip {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;
+        }
+        .stat-box {
+            text-align: center; padding: 36px 20px;
+            background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-lg);
+            transition: var(--transition); position: relative; overflow: hidden;
+        }
+        .stat-box::after {
+            content: ''; position: absolute; bottom: 0; left: 20%; right: 20%; height: 2px;
+            background: var(--primary-gradient); opacity: 0; transition: var(--transition);
+        }
+        .stat-box:hover { transform: translateY(-5px); border-color: rgba(79, 125, 249, 0.45); }
+        .stat-box:hover::after { opacity: 1; }
+        .stat-num {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 3rem; font-weight: 800; letter-spacing: -1.5px; line-height: 1;
+            background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .stat-label { display: block; margin-top: 10px; color: var(--text-muted); font-size: 0.9rem; font-weight: 500; }
+
+        /* ===== TARJETA GENÉRICA (glass) ===== */
+        .panel {
+            background: radial-gradient(circle at 50% 0%, rgba(79, 125, 249, 0.14) 0%, rgba(3, 3, 9, 0) 70%), var(--bg-surface);
+            border: 1px solid rgba(79, 125, 249, 0.3); border-radius: 30px;
+            padding: 60px; position: relative; overflow: hidden;
+            box-shadow: 0 0 80px -20px rgba(79, 125, 249, 0.2);
+        }
+
+        /* ===== INFORMACIÓN DEL CLIENTE ===== */
+        .client-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px; align-items: center; }
+        .client-data { display: flex; flex-direction: column; gap: 0; }
+        .client-data .row {
+            display: flex; justify-content: space-between; gap: 24px;
+            padding: 18px 0; border-bottom: 1px solid var(--border-light);
+        }
+        .client-data .row:last-child { border-bottom: none; }
+        .client-data .row .label { color: var(--text-muted); font-size: 0.95rem; }
+        .client-data .row .value { color: #fff; font-weight: 600; text-align: right; }
+
+        .id-card-wrapper { perspective: 1000px; display: flex; justify-content: center; }
+        .id-card {
+            width: 300px; background: linear-gradient(145deg, #10142a, #080a14);
+            border: 1px solid rgba(79, 125, 249, 0.25); border-radius: 20px; padding: 22px;
+            text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            animation: floatCard 6s ease-in-out infinite; transform-style: preserve-3d;
+        }
+        .id-photo {
+            width: 100%; aspect-ratio: 16/10; border-radius: 14px; margin: 0 auto 18px;
+            border: 1px solid rgba(79, 125, 249, 0.2); object-fit: cover; object-position: center;
+            box-shadow: 0 20px 50px rgba(79, 125, 249, 0.3); background: #000;
+        }
+        @keyframes floatCard { 0%,100%{transform:translateY(0) rotate(0deg);} 50%{transform:translateY(-15px) rotate(2deg);} }
+        .id-name { display: block; font-size: 1.05rem; font-weight: 800; letter-spacing: 0.12em; }
+        .id-role { display: block; margin-top: 6px; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.25em; color: var(--text-muted); }
+
+        /* ===== PLAN MES A MES ===== */
+        .months-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 24px; }
+        .month-card {
+            background: var(--bg-card); border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg); padding: 38px 34px; position: relative; overflow: hidden;
+            transition: var(--transition);
+        }
+        .month-card:hover { transform: translateY(-6px); border-color: rgba(79, 125, 249, 0.5); box-shadow: 0 20px 50px -20px var(--primary-glow); }
+        .month-num {
+            font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; font-weight: 700;
+            letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent-soft);
+            display: inline-block; padding: 5px 14px; border-radius: 20px;
+            background: rgba(79, 125, 249, 0.12); border: 1px solid rgba(79, 125, 249, 0.3);
+            margin-bottom: 18px;
+        }
+        .month-card h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 6px; letter-spacing: -0.5px; }
+        .month-card .month-focus { color: var(--text-muted); font-size: 0.92rem; margin-bottom: 22px; }
+        .month-deliverables { display: flex; flex-direction: column; gap: 12px; }
+        .month-deliverables .item {
+            display: flex; align-items: center; gap: 12px; font-size: 0.95rem;
+            padding: 12px 16px; border-radius: 14px;
+            background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05);
+        }
+        .month-deliverables .item i { color: #7DD3FC; font-size: 0.95rem; width: 18px; text-align: center; }
+        .month-deliverables .item strong { color: #fff; }
+        .month-deliverables .item span { color: var(--text-muted); }
+
+        /* Nota "marca humana": tú te grabas, nosotros guiamos y editamos */
+        .human-note {
+            margin-top: 28px; display: flex; gap: 22px; align-items: flex-start;
+            padding: 32px 36px; border-radius: var(--radius-lg);
+            background: linear-gradient(135deg, rgba(79, 125, 249, 0.14) 0%, rgba(139, 92, 246, 0.08) 100%);
+            border: 1px solid rgba(79, 125, 249, 0.35);
+        }
+        .human-note .hn-icon {
+            flex-shrink: 0; width: 54px; height: 54px; border-radius: 50%;
+            background: var(--primary-gradient); display: flex; align-items: center; justify-content: center;
+            font-size: 1.15rem; box-shadow: 0 10px 30px var(--primary-glow);
+        }
+        .human-note h4 { font-size: 1.12rem; font-weight: 700; margin-bottom: 6px; letter-spacing: -0.3px; }
+        .human-note p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.65; }
+        .human-note strong { color: #fff; font-weight: 600; }
+
+        /* ===== SOLUCIONES ===== */
+        .solutions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 24px; }
+        .solution-card {
+            background: var(--bg-card); border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg); padding: 40px; transition: var(--transition);
+            position: relative; overflow: hidden;
+        }
+        .solution-card:hover { transform: translateY(-6px); border-color: rgba(79, 125, 249, 0.45); }
+        .solution-icon {
+            width: 60px; height: 60px; margin-bottom: 22px; border-radius: 50%;
+            background: var(--primary-gradient); display: flex; align-items: center; justify-content: center;
+            font-size: 1.3rem; box-shadow: 0 10px 30px var(--primary-glow);
+        }
+        .solution-card h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 12px; }
+        .solution-card p { color: var(--text-muted); font-size: 0.96rem; }
+        .solution-num {
+            position: absolute; top: 24px; right: 28px;
+            font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: rgba(255,255,255,0.18);
+        }
+        /* Animación scroll-driven (estilo motionsites/Shamoni): la card aparece y avanza
+           LIGADA al scroll — si el usuario se detiene, la animación se detiene.
+           En navegadores sin soporte, cae al sistema .reveal de siempre. */
+        @supports (animation-timeline: view()) {
+            .solutions-grid .solution-card {
+                opacity: 1; transform: none; filter: none; transition: border-color 0.3s ease, box-shadow 0.3s ease;
+                animation: cardScrollIn linear both;
+                animation-timeline: view();
+                animation-range: entry 0% entry 62%;
+            }
+            /* Cascada: cada columna entra un poco después */
+            .solutions-grid .solution-card:nth-child(3n+2) { animation-range: entry 6% entry 72%; }
+            .solutions-grid .solution-card:nth-child(3n)   { animation-range: entry 12% entry 82%; }
+        }
+        @keyframes cardScrollIn {
+            from { opacity: 0; transform: translateY(90px) scale(0.94); filter: blur(6px); }
+            60%  { filter: blur(0); }
+            to   { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+        }
+
+        /* ===== DIAGNÓSTICO ===== */
+        .diag-intro {
+            max-width: 760px; margin: 0 auto 46px; text-align: center;
+            color: var(--text-muted); font-size: 1.05rem; line-height: 1.75;
+        }
+        .diag-intro strong { color: #fff; font-weight: 600; }
+        .diag-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+        .diag-card {
+            background: var(--bg-card); border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg); padding: 36px 32px; transition: var(--transition);
+        }
+        .diag-card:hover { transform: translateY(-6px); border-color: rgba(79, 125, 249, 0.45); }
+        .diag-card .diag-icon {
+            width: 46px; height: 46px; margin-bottom: 20px; border-radius: 14px;
+            display: flex; align-items: center; justify-content: center; font-size: 1.05rem;
+            background: rgba(79, 125, 249, 0.14); border: 1px solid rgba(79, 125, 249, 0.32);
+            color: #7DD3FC;
+        }
+        .diag-card h3 { font-size: 1.12rem; font-weight: 700; margin-bottom: 10px; letter-spacing: -0.3px; }
+        .diag-card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; }
+
+        /* ===== PROCESO ===== */
+        .process-list { display: flex; flex-direction: column; gap: 0; max-width: 860px; margin: 0 auto; }
+        .process-step {
+            display: flex; gap: 26px; align-items: flex-start;
+            padding: 26px 0; border-bottom: 1px solid var(--border-light);
+        }
+        .process-step:last-child { border-bottom: none; }
+        .process-step .ps-num {
+            flex-shrink: 0; width: 46px; height: 46px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; font-weight: 700;
+            color: #7DD3FC; background: rgba(79, 125, 249, 0.12);
+            border: 1px solid rgba(79, 125, 249, 0.34);
+        }
+        .process-step h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 6px; letter-spacing: -0.3px; }
+        .process-step p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; }
+        .process-step strong { color: #fff; font-weight: 600; }
+
+        /* ===== COMPARATIVA DE INVERSIÓN ===== */
+        .compare-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 18px; margin: 0 auto 44px; max-width: 1000px;
+        }
+        .compare-card {
+            background: rgba(255,255,255,0.025); border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg); padding: 30px 26px; transition: var(--transition);
+        }
+        .compare-card.highlight {
+            background: linear-gradient(135deg, rgba(79, 125, 249, 0.16) 0%, rgba(139, 92, 246, 0.09) 100%);
+            border-color: rgba(79, 125, 249, 0.5);
+            box-shadow: 0 20px 60px -25px var(--primary-glow);
+        }
+        .compare-card .cc-label { display: block; font-size: 0.9rem; color: var(--text-muted); margin-bottom: 12px; font-weight: 500; }
+        .compare-card.highlight .cc-label { color: #93C5FD; font-weight: 700; }
+        .compare-card .cc-price { display: block; font-size: 1.5rem; font-weight: 800; letter-spacing: -0.8px; margin-bottom: 12px; }
+        .compare-card .cc-detail { color: var(--text-muted); font-size: 0.88rem; line-height: 1.6; }
+
+        /* ===== GARANTÍA ===== */
+        .guarantee {
+            max-width: 900px; margin: 0 auto; display: flex; gap: 24px; align-items: flex-start;
+            padding: 36px 40px; border-radius: var(--radius-lg);
+            background: linear-gradient(135deg, rgba(79, 125, 249, 0.15) 0%, rgba(139, 92, 246, 0.08) 100%);
+            border: 1px solid rgba(79, 125, 249, 0.4);
+        }
+        .guarantee .g-icon {
+            flex-shrink: 0; width: 56px; height: 56px; border-radius: 50%;
+            background: var(--primary-gradient); display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem; box-shadow: 0 10px 30px var(--primary-glow);
+        }
+        .guarantee h4 { font-size: 1.18rem; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.3px; }
+        .guarantee p { color: var(--text-muted); font-size: 0.97rem; line-height: 1.7; }
+        .guarantee strong { color: #fff; font-weight: 600; }
+
+        /* ===== OBJECIONES ===== */
+        .objections { display: flex; flex-direction: column; gap: 18px; max-width: 880px; margin: 0 auto; }
+        .objection-card {
+            background: var(--bg-card); border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg); padding: 32px 34px; transition: var(--transition);
+        }
+        .objection-card:hover { border-color: rgba(79, 125, 249, 0.42); }
+        .objection-card .obj-q {
+            display: block; font-family: 'Instrument Serif', Georgia, serif; font-style: italic;
+            font-size: 1.28rem; color: #fff; margin-bottom: 14px; line-height: 1.45;
+        }
+        .objection-card .obj-a { color: var(--text-muted); font-size: 0.97rem; line-height: 1.75; }
+        .objection-card .obj-a strong { color: #fff; font-weight: 600; }
+
+        /* ===== VIGENCIA ===== */
+        .validity {
+            display: inline-flex; align-items: center; gap: 10px; margin-top: 22px;
+            padding: 10px 22px; border-radius: 50px; font-size: 0.86rem; font-weight: 600;
+            background: rgba(139, 92, 246, 0.12); border: 1px solid rgba(139, 92, 246, 0.4);
+            color: #C4B5FD;
+        }
+
+        /* ===== INVERSIÓN ===== */
+        .investment {
+            text-align: center; padding: 70px 40px; border-radius: 30px; position: relative; overflow: hidden;
+            background: linear-gradient(135deg, #10142a 0%, #080a14 100%);
+            border: 2px solid rgba(79, 125, 249, 0.5);
+        }
+        .investment::before {
+            content: ''; position: absolute; inset: -50%;
+            background: radial-gradient(circle, rgba(79,125,249,0.12) 0%, transparent 65%);
+            animation: rotate 22s linear infinite;
+        }
+        @keyframes rotate { 0%{transform:rotate(0deg);} 100%{transform:rotate(360deg);} }
+        .investment > * { position: relative; z-index: 1; }
+        .investment .eyebrow { color: var(--accent-soft); }
+        .investment .amount {
+            font-size: clamp(3.2rem, 8vw, 5rem); font-weight: 800; letter-spacing: -2px; line-height: 1;
+            margin: 10px 0 4px; background: var(--primary-gradient);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+        .investment .per { display: block; color: var(--text-muted); font-size: 1rem; margin-bottom: 18px; }
+        .investment .total-line {
+            display: inline-flex; align-items: center; gap: 10px;
+            padding: 10px 24px; border-radius: 50px; margin-bottom: 20px;
+            background: rgba(255,255,255,0.05); border: 1px solid var(--border-light);
+            font-size: 0.95rem; color: #E2E8F0;
+        }
+        .investment .total-line strong { color: #fff; font-weight: 700; }
+        .investment .note { color: rgba(255,255,255,0.6); font-size: 0.92rem; max-width: 500px; margin: 0 auto 32px; }
+
+        /* ===== TÉRMINOS ===== */
+        .terms-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
+        .term-card {
+            background: var(--bg-surface); border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg); padding: 34px; transition: var(--transition);
+        }
+        .term-card:hover { border-color: rgba(79, 125, 249, 0.4); }
+        .term-icon { font-size: 1.1rem; color: var(--accent-soft); margin-bottom: 16px; }
+        .term-card h4 { font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; }
+        .term-card p { color: var(--text-muted); font-size: 0.94rem; }
+
+        /* ===== CTA FINAL ===== */
+        .final-cta {
+            background: var(--primary-gradient); padding: 70px 40px; border-radius: 30px;
+            text-align: center; position: relative; overflow: hidden;
+        }
+        .final-cta::before {
+            content: ''; position: absolute; inset: -50%;
+            background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+        .final-cta > * { position: relative; z-index: 1; }
+        .final-cta h2 { font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 800; margin-bottom: 14px; letter-spacing: -1px; }
+        .final-cta p { font-size: 1.15rem; margin-bottom: 30px; opacity: 0.95; }
+        .final-cta .btn-dark {
+            background: #030309; color: #fff; padding: 16px 44px; font-size: 1rem;
+            border-radius: 50px; font-weight: 700; border: none; cursor: pointer; transition: var(--transition);
+            display: inline-flex; align-items: center; gap: 10px;
+        }
+        .final-cta .btn-dark:hover { transform: scale(1.04); background: #0d0d18; }
+        .final-cta small { display: block; margin-top: 16px; font-size: 0.85rem; opacity: 0.9; }
+
+        /* ===== FOOTER ===== */
+        footer { text-align: center; padding: 60px 24px; border-top: 1px solid var(--border-light); }
+        footer .logo { margin-bottom: 8px; }
+        footer .tagline { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 1.4rem; color: #fff; margin-bottom: 20px; }
+        .footer-contact { display: flex; gap: 28px; justify-content: center; flex-wrap: wrap; margin-bottom: 18px; }
+        .footer-contact a { color: var(--text-muted); font-size: 0.92rem; transition: 0.2s; }
+        .footer-contact a:hover { color: #fff; }
+        footer .copyright { color: var(--text-muted); font-size: 0.85rem; }
+
+        /* ===== 3D PARTICLES ===== */
+        #particles-canvas {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 0; pointer-events: none; opacity: 0.6;
+        }
+
+        /* ===== RESPONSIVE ===== */
+
+        /* ---- Tablet/móvil: foto a sangre completa, rostro corrido a la derecha, texto sobre el degradado ---- */
+        @media (max-width: 968px) {
+            .hero { min-height: 94vh; }
+            /* object-position X bajo = rostro se corre a la derecha; se quita la máscara lateral */
+            .hero-img { object-position: 24% 15%; -webkit-mask-image: none; mask-image: none; }
+            .hero-halo { top: 30%; left: 70%; width: clamp(300px, 66vw, 460px); }
+            .hero-shade {
+                background:
+                    linear-gradient(90deg, rgba(3,3,9,0.9) 0%, rgba(3,3,9,0.5) 40%, rgba(3,3,9,0.12) 62%, transparent 80%),
+                    linear-gradient(to bottom, rgba(3,3,9,0.5) 0%, transparent 20%, transparent 48%, rgba(3,3,9,0.86) 74%, rgba(3,3,9,0.98) 100%);
+            }
+            .hero-content {
+                grid-template-columns: 1fr; align-items: end; padding: 120px 30px 46px; min-height: 94vh;
+            }
+            .hero-text { grid-column: 1; }
+            .hero-text h1 { font-size: clamp(1.5rem, 5.6vw, 2.4rem); letter-spacing: -1px; }
+            .hero-desc { font-size: 0.9rem; max-width: 300px; }
+
+            .client-grid { grid-template-columns: 1fr; gap: 40px; }
+            .panel { padding: 40px 28px; }
+            .section-header h2 { font-size: 2.2rem; }
+            .stat-num { font-size: 2.6rem; }
+        }
+
+        /* ---- Móvil ---- */
+        @media (max-width: 768px) {
+            .container { padding: 0 40px; }
+            /* Los blobs decorativos sobresalen del borde en pantallas angostas */
+            .parallax-bg { display: none; }
+            .menu-toggle { display: block; }
+            .nav-links {
+                position: fixed; top: 0; right: -100%; height: 100vh; width: 100%;
+                background: rgba(3, 3, 9, 0.98); flex-direction: column; justify-content: center; gap: 28px; transition: 0.4s;
+            }
+            .nav-links.active { right: 0; }
+            .nav-links a { font-size: 1.2rem; }
+            .section-padding { padding: 66px 0; }
+
+            /* Más aire lateral para los títulos/subtítulos de cada sección — antes tocaban el borde */
+            .section-header { padding: 0 16px; }
+            .section-header p { max-width: 340px; margin-left: auto; margin-right: auto; }
+            .eyebrow { letter-spacing: 0.2em; font-size: 0.72rem; }
+
+            /* Foto a sangre completa; el texto respira abajo-izquierda sobre el degradado */
+            .hero-content { padding: 112px 40px 42px; }
+            .hero-text h1 { font-size: clamp(1.35rem, 6.4vw, 2rem); }
+            .hero-desc { font-size: 0.84rem; margin-top: 18px; max-width: 250px; }
+            .hero-img { object-position: 22% 15%; }
+            /* CTAs del hero a ancho completo (táctil) */
+            .hero-cta-row { flex-direction: column; align-items: stretch; width: 100%; gap: 10px; margin-top: 26px; }
+            .hero-cta-row .btn { width: 100%; justify-content: center; padding: 13px 16px; font-size: 0.86rem; }
+            .platform-chips { gap: 8px; margin-top: 16px; }
+
+            /* Stats en 2 columnas */
+            .stats-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+            .stat-box { padding: 26px 12px; }
+            .stat-num { font-size: 2.2rem; }
+            .stat-label { font-size: 0.82rem; }
+
+            /* Video */
+            .play-button { width: 68px; height: 68px; font-size: 1.3rem; }
+            .video-frame, .video-frame video, .video-frame::before { border-radius: 18px; }
+            .video-caption { font-size: 0.85rem; gap: 8px; }
+
+            /* Tarjeta del cliente centrada y flexible */
+            .id-card { width: 100%; max-width: 300px; }
+
+            /* Plan / soluciones / términos: 1 columna con aire */
+            .months-grid, .solutions-grid, .terms-grid { grid-template-columns: 1fr; gap: 18px; }
+            .month-card { padding: 30px 24px; }
+            .solution-card { padding: 32px 24px; }
+            .term-card { padding: 30px 24px; }
+
+            /* Nota "marca humana" apilada en móvil */
+            .human-note { flex-direction: column; padding: 28px 24px; gap: 16px; margin-top: 22px; }
+
+            .investment { padding: 48px 22px; }
+            .investment .amount { font-size: clamp(2.8rem, 15vw, 3.6rem); }
+            .final-cta { padding: 48px 22px; }
+
+            /* Secciones nuevas en móvil */
+            .diag-grid, .compare-grid { grid-template-columns: 1fr; gap: 18px; }
+            .diag-card { padding: 30px 26px; }
+            .diag-intro { font-size: 0.97rem; margin-bottom: 34px; }
+            .process-step { gap: 16px; padding: 22px 0; }
+            .process-step .ps-num { width: 40px; height: 40px; font-size: 0.75rem; }
+            .guarantee { flex-direction: column; padding: 30px 26px; gap: 16px; }
+            .objection-card { padding: 28px 24px; }
+            .objection-card .obj-q { font-size: 1.12rem; }
+        }
+
+        /* ---- Móvil pequeño ---- */
+        @media (max-width: 420px) {
+            .container { padding: 0 34px; }
+            .hero-content { padding: 104px 34px 34px; }
+            .hero-text h1 { font-size: clamp(1.25rem, 7.4vw, 1.85rem); letter-spacing: -0.5px; }
+            .hero-desc { font-size: 0.8rem; line-height: 1.55; max-width: 220px; }
+            .hero-img { object-position: 20% 14%; }
+            .platform-chip { padding: 6px 12px; font-size: 0.74rem; }
+            .section-header { padding: 0 10px; }
+            .section-header h2 { font-size: 1.85rem; }
+            .section-header p { max-width: 280px; }
+            .eyebrow { letter-spacing: 0.15em; font-size: 0.68rem; }
+            .panel { padding: 32px 20px; }
+            .stat-num { font-size: 1.9rem; }
+            .investment .amount { font-size: clamp(2.4rem, 16vw, 3rem); }
+            .investment .total-line { font-size: 0.85rem; padding: 9px 18px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="progress-bar"></div>
+    <div class="ambient-light"></div>
+    <canvas id="particles-canvas"></canvas>
+    <div class="parallax-bg" data-speed="0.1" style="top: 10%; left: 5%;"></div>
+    <div class="parallax-bg" data-speed="-0.15" style="top: 60%; right: 5%; background: rgba(56, 189, 248, 0.3);"></div>
+
+    <!-- ===== NAV ===== -->
+    <nav>
+        <div class="container nav-container">
+           <a href="https://gianvisuals.com" target="_blank" rel="noopener" class="logo">GIAN <span class="text-gradient">VISUALS</span></a>
+            <div class="menu-toggle" id="mobile-menu"><i class="fas fa-bars"></i></div>
+            <div class="nav-links">
+                <a href="#video" onclick="closeMenu()">Tu video</a>
+                <a href="#plan" onclick="closeMenu()">Plan</a>
+                <a href="#proceso" onclick="closeMenu()">Proceso</a>
+                <a href="#inversion" onclick="closeMenu()">Inversión</a>
+                <button class="btn btn-primary" id="nav-wa-btn">Confirmar</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== HERO (cinemático a sangre completa · texto izquierda, rostro derecha) ===== -->
+    <header class="hero">
+        <img src="hero.jpeg" alt="Gian — Partner de contenido audiovisual" class="hero-img" loading="eager">
+        <div class="hero-halo"></div>
+        <div class="hero-shade"></div>
+        <div class="hero-grain"></div>
+        <div class="hero-vignette"></div>
+
+        <div class="hero-content">
+            <div class="hero-text reveal reveal-left delay-1">
+                <h1 id="hero-title"></h1>
+                <p class="hero-desc" id="hero-desc"></p>
+                <div class="platform-chips" id="platform-chips"></div>
+                <div class="hero-meta" id="hero-meta"></div>
+                <div class="hero-cta-row">
+                    <a href="#video" class="btn btn-secondary"><i class="fas fa-play"></i> Ver lo que ya hice para ti</a>
+                    <button class="btn btn-primary" id="hero-wa-btn">
+                        <i class="fab fa-whatsapp"></i> Confirmar por WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- ===== DIAGNÓSTICO (dónde estás hoy) ===== -->
+        <section id="diagnostico" class="container section-padding">
+            <div class="section-header reveal reveal-up">
+                <span class="eyebrow" id="diag-eyebrow"></span>
+                <h2 id="diag-title"></h2>
+            </div>
+            <p class="diag-intro reveal reveal-up delay-1" id="diag-intro"></p>
+            <div class="diag-grid" id="diag-grid"></div>
+        </section>
+
+        <!-- ===== VIDEO PERSONALIZADO ===== -->
+        <section id="video" class="container section-padding video-showcase">
+            <div class="section-header reveal reveal-up">
+                <span class="eyebrow" id="video-eyebrow"></span>
+                <h2 id="video-title"></h2>
+                <p id="video-subtitle"></p>
+            </div>
+            <div class="video-frame reveal reveal-scale delay-1">
+                <video id="showcase-video" playsinline preload="metadata" controls></video>
+                <div class="video-play-overlay" id="video-overlay">
+                    <div class="play-button"><i class="fas fa-play"></i></div>
+                </div>
+            </div>
+            <div class="video-caption reveal reveal-up delay-2" id="video-caption"></div>
+        </section>
+
+        <!-- ===== STATS DEL PAQUETE ===== -->
+        <section class="container" style="padding-bottom:100px;">
+            <div class="stats-strip" id="stats-strip"></div>
+        </section>
+
+        <!-- ===== INFORMACIÓN DEL CLIENTE ===== -->
+        <section id="cliente" class="container section-padding" style="padding-top:0;">
+            <div class="panel reveal reveal-up">
+                <div class="client-grid">
+                    <div>
+                        <span class="eyebrow reveal reveal-left delay-1">Información del proyecto</span>
+                        <h2 class="reveal reveal-left delay-1" style="font-size:2rem;font-weight:800;letter-spacing:-1px;margin-bottom:24px;">
+                            Datos del <span class="text-gradient">Proyecto</span>
+                        </h2>
+                        <div class="client-data reveal reveal-left delay-2" id="client-data"></div>
+                    </div>
+                    <div class="reveal reveal-right delay-2">
+                        <div class="id-card-wrapper">
+                            <div class="id-card" id="tiltCard">
+                                <img src="trabajarias.jpg" class="id-photo" id="client-photo" alt="Logo del cliente">
+                                <span class="id-name" id="client-card-name">CLIENTE</span>
+                                <span class="id-role" id="client-card-role">Especialidad</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== PLAN MES A MES ===== -->
+        <section id="plan" class="container section-padding" style="padding-top:0;">
+            <div class="section-header reveal reveal-up">
+                <h2>Plan de <span class="text-gradient">90 días</span></h2>
+                <p id="plan-subtitle"></p>
+            </div>
+            <div class="months-grid" id="months-grid"></div>
+            <div class="human-note reveal reveal-up delay-2" id="human-note"></div>
+        </section>
+
+        <!-- ===== SOLUCIONES INCLUIDAS ===== -->
+        <section id="soluciones" class="container section-padding" style="padding-top:0;">
+            <div class="section-header reveal reveal-up">
+                <h2>Soluciones <span class="text-gradient">Incluidas</span></h2>
+                <p>Todo lo que se construye para posicionar a TrabajarIAs en su nicho.</p>
+            </div>
+            <div class="solutions-grid" id="solutions-grid"></div>
+        </section>
+
+        <!-- ===== CÓMO TRABAJAMOS ===== -->
+        <section id="proceso" class="container section-padding" style="padding-top:0;">
+            <div class="section-header reveal reveal-up">
+                <span class="eyebrow" id="proceso-eyebrow"></span>
+                <h2 id="proceso-title"></h2>
+                <p id="proceso-intro"></p>
+            </div>
+            <div class="panel reveal reveal-up delay-1">
+                <div class="process-list" id="process-list"></div>
+            </div>
+        </section>
+
+        <!-- ===== INVERSIÓN ===== -->
+        <section id="inversion" class="container section-padding" style="padding-top:0;">
+            <div class="section-header reveal reveal-up">
+                <span class="eyebrow" id="compare-eyebrow"></span>
+                <h2 id="compare-title"></h2>
+            </div>
+            <div class="compare-grid reveal reveal-up delay-1" id="compare-grid"></div>
+
+            <div class="investment reveal reveal-up">
+                <span class="eyebrow" id="investment-label">Inversión</span>
+                <div class="amount" id="investment-amount">€0</div>
+                <span class="per" id="investment-per">por mes</span>
+                <div class="total-line" id="investment-total"></div>
+                <p class="note" id="investment-note"></p>
+                <button class="btn btn-primary" id="investment-wa-btn" style="font-size:1rem;padding:16px 44px;">
+                    <i class="fab fa-whatsapp"></i> Confirmar inversión
+                </button>
+                <div><span class="validity" id="investment-validity"></span></div>
+            </div>
+
+            <div class="guarantee reveal reveal-up delay-2" id="guarantee" style="margin-top:36px;"></div>
+        </section>
+
+        <!-- ===== OBJECIONES ===== -->
+        <section id="objeciones" class="container section-padding" style="padding-top:0;">
+            <div class="section-header reveal reveal-up">
+                <span class="eyebrow" id="obj-eyebrow"></span>
+                <h2 id="obj-title"></h2>
+            </div>
+            <div class="objections" id="objections-list"></div>
+        </section>
+
+        <!-- ===== TÉRMINOS Y CONDICIONES ===== -->
+        <section id="terminos" class="container section-padding" style="padding-top:0;">
+            <div class="section-header reveal reveal-up">
+                <h2>Términos y <span class="text-gradient">Condiciones</span></h2>
+                <p>Todo por escrito antes de que decidas.</p>
+            </div>
+            <div class="terms-grid" id="terms-grid"></div>
+        </section>
+
+        <!-- ===== CTA FINAL ===== -->
+        <section class="container" style="margin-bottom:100px;">
+            <div class="final-cta reveal reveal-up">
+                <h2 id="final-cta-title"></h2>
+                <p id="final-cta-text"></p>
+                <button class="btn-dark" id="final-wa-btn">
+                    <i class="fab fa-whatsapp"></i> Confirmar por WhatsApp
+                </button>
+                <small id="final-cta-note"></small>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="logo">GIAN <span class="text-gradient">VISUALS</span></div>
+        <p class="tagline">Que se note.</p>
+        <div class="footer-contact" id="footer-contact"></div>
+        <p class="copyright" id="copyright"></p>
+    </footer>
+
+    <script>
+    /* ================================================================
+       ███  EDITA AQUÍ — DATOS DE LA COTIZACIÓN  ███
+       ----------------------------------------------------------------
+       Solo cambia los textos de este bloque para cada cliente nuevo.
+       NO necesitas tocar nada más abajo.
+       ================================================================ */
+    const COTIZACION = {
+
+        /* --- Marca y contacto (casi nunca cambia) --- */
+        marca: {
+            whatsapp: "573209263077",            // número con código de país, sin "+" ni espacios
+            telefono: "320 926 3077",            // como se muestra en pantalla
+            email: "cotizaciones@gianvisuals.com"
+        },
+
+        /* --- HERO --- */
+        hero: {
+            // El título se arma línea por línea. La línea con "morph: true"
+            // tendrá el efecto de fuentes que cambian.
+            titulo: [
+                { texto: "Que TrabajarIAs", morph: false },
+                { texto: "suene",           morph: true  },
+                { texto: "antes que el resto.", morph: false }
+            ],
+            descripcion: "90 días de contenido con criterio para que, cuando alguien en España piense en buscar empleo con IA, el nombre que le venga a la cabeza sea el tuyo.",
+            plataformas: [
+                { icono: "fa-brands fa-instagram", nombre: "Instagram" },
+                { icono: "fa-brands fa-tiktok",    nombre: "TikTok" }
+            ],
+            preparadoPara: "Mauricio · TrabajarIAs"
+        },
+
+        /* --- DIAGNÓSTICO: el dolor antes de la solución --- */
+        diagnostico: {
+            eyebrow: "Dónde estás hoy",
+            titulo: 'El producto no es el problema. <span class="text-gradient">La visibilidad sí.</span>',
+            intro: "Después de nuestra conversación me quedó claro: <strong>TrabajarIAs funciona.</strong> Lo que falta es que el mercado lo sepa, y que lo sepa antes de que otro ocupe ese lugar en la cabeza de la gente.",
+            puntos: [
+                {
+                    icono: "fa-eye-slash",
+                    titulo: "Nadie elige lo que no conoce",
+                    texto: "Un producto puede ser el mejor de su categoría en España y aun así no vender, simplemente porque el mercado no sabe que existe. La visibilidad no es maquillaje de marca: es el primer escalón del embudo. Sin ella, no hay nada que optimizar más abajo."
+                },
+                {
+                    icono: "fa-hourglass-half",
+                    titulo: "El nicho se está repartiendo ahora",
+                    texto: "«Empleo + IA» es una categoría joven en español. Y en las categorías jóvenes no gana el mejor producto: gana el que primero se convierte en la referencia. Ese lugar se ocupa una sola vez, y ahora mismo sigue vacante."
+                },
+                {
+                    icono: "fa-arrow-trend-down",
+                    titulo: "Esperar tiene un costo que no aparece en la factura",
+                    texto: "Un mes sin contenido no se registra como gasto en ningún lado. Pero es un mes de autoridad que se lleva otro, y esa autoridad después no se compra con presupuesto: se compra con tiempo, que es lo único que no puedes recuperar."
+                }
+            ]
+        },
+
+        /* --- VIDEO PERSONALIZADO --- */
+        video: {
+            archivo: "Trabajarias.mp4",          // nombre exacto del archivo en esta carpeta
+            poster: "trabajarias.jpg",           // imagen de portada antes de reproducir
+            eyebrow: "Trabajo hecho antes de firmar",
+            titulo: 'No te voy a contar cómo trabajo. <span class="text-gradient">Te lo muestro.</span>',
+            subtitulo: "Tomé el video de entrada de tu web y lo reconstruí. No por gusto: en la versión original la promesa aparecía tarde y el ritmo soltaba al espectador antes de llegar al mensaje. Reescribí la estructura, lo remonté y le puse el pulso que necesita para sobrevivir en Instagram y TikTok. Esto es exactamente lo que recibirías cada semana.",
+            tags: ["Video original de tu web", "→", "Versión Gian Visuals"]
+        },
+
+        /* --- CLIENTE --- */
+        cliente: {
+            foto: "trabajarias.jpg",             // logo o foto del cliente en esta carpeta
+            nombreCorto: "TRABAJARIAS",          // nombre grande en la tarjeta
+            especialidad: "Búsqueda de empleo con IA",
+            datos: [
+                { label: "Cliente",     valor: "Mauricio — TrabajarIAs" },
+                { label: "Sector",      valor: "IA aplicada al empleo · España" },
+                { label: "Objetivo",    valor: "Posicionar la marca en su nicho y convertir esa atención en usuarios" },
+                { label: "Proyecto",    valor: "Producción de contenido y gestión de redes" },
+                { label: "Plataformas", valor: "Instagram + TikTok" },
+                { label: "Duración",    valor: "3 meses · 90 días de presencia continua" }
+            ]
+        },
+
+        /* --- STATS DEL PAQUETE (los números grandes) --- */
+        stats: [
+            { numero: 90, sufijo: "",  label: "Días de presencia sin un solo hueco" },
+            { numero: 57, sufijo: "",  label: "Piezas con la identidad de TrabajarIAs" },
+            { numero: 2,  sufijo: "",  label: "Plataformas trabajando en paralelo" },
+            { numero: 0,  sufijo: "",  label: "Horas tuyas editando o diseñando" }
+        ],
+
+        /* --- PLAN MES A MES --- */
+        plan: {
+            subtitulo: "Tres meses, tres objetivos distintos. Esto no es publicar por publicar: cada mes tiene una misión y se construye sobre el anterior.",
+            meses: [
+                {
+                    numero: "Mes 01",
+                    titulo: "Existir",
+                    enfoque: "El mercado se entera de que TrabajarIAs existe: qué resuelve, para quién y por qué la IA cambia la forma de buscar empleo. Salimos con una identidad visual reconocible desde el primer scroll.",
+                    entregables: [
+                        { icono: "fa-film",           texto: "<strong>10 Reels</strong> <span>editados para IG + TikTok</span>" },
+                        { icono: "fa-layer-group",    texto: "<strong>5 Carruseles</strong> <span>de valor y educación</span>" },
+                        { icono: "fa-image",          texto: "<strong>4 Publicaciones</strong> <span>de marca y comunidad</span>" }
+                    ]
+                },
+                {
+                    numero: "Mes 02",
+                    titulo: "Tracción",
+                    enfoque: "Ya tenemos datos reales. Doblamos la apuesta en los formatos que funcionaron, adaptamos tendencias a tu nicho y empezamos a empujar a la audiencia hacia la plataforma.",
+                    entregables: [
+                        { icono: "fa-film",           texto: "<strong>10 Reels</strong> <span>editados para IG + TikTok</span>" },
+                        { icono: "fa-layer-group",    texto: "<strong>5 Carruseles</strong> <span>de valor y educación</span>" },
+                        { icono: "fa-image",          texto: "<strong>4 Publicaciones</strong> <span>de marca y comunidad</span>" }
+                    ]
+                },
+                {
+                    numero: "Mes 03",
+                    titulo: "Autoridad",
+                    enfoque: "TrabajarIAs deja de ser «una app más» y pasa a ser la referencia de empleo + IA en español. Contenido que la gente cita, guarda y comparte cuando alguien pregunta cómo buscar trabajo hoy.",
+                    entregables: [
+                        { icono: "fa-film",           texto: "<strong>10 Reels</strong> <span>editados para IG + TikTok</span>" },
+                        { icono: "fa-layer-group",    texto: "<strong>5 Carruseles</strong> <span>de valor y educación</span>" },
+                        { icono: "fa-image",          texto: "<strong>4 Publicaciones</strong> <span>de marca y comunidad</span>" }
+                    ]
+                }
+            ],
+            /* Nota destacada al final del plan: la marca se ve humana porque Mauricio aparece */
+            notaHumana: {
+                icono: "fa-user-check",
+                titulo: "Tu cara es tu mejor activo. Y casi no te cuesta tiempo.",
+                texto: "Las marcas con rostro generan más confianza que los logos, y en tu categoría la confianza lo es todo: le estás pidiendo a alguien que ponga su futuro laboral en manos de una IA. Por eso varios Reels los grabas <strong>tú</strong>: yo te envío el guion palabra por palabra y cómo encuadrar, tú grabas con el celular en cinco minutos y me lo mandas. <strong>Todo lo demás corre por mi cuenta.</strong> Mientras crece TrabajarIAs, crece tu marca personal."
+            }
+        },
+
+        /* --- SOLUCIONES INCLUIDAS --- */
+        // Iconos: usa cualquiera de Font Awesome (https://fontawesome.com/icons)
+        soluciones: [
+            {
+                icono: "fa-film",
+                titulo: "Reels y TikToks que retienen",
+                descripcion: "El scroll se decide en dos segundos. Los 30 videos verticales se editan con ritmo, subtítulos y un lenguaje visual propio para que la gente se quede hasta el final, que es lo único que el algoritmo premia de verdad. La misma calidad del video que acabas de ver, cada semana."
+            },
+            {
+                icono: "fa-layer-group",
+                titulo: "Carruseles que se guardan y se comparten",
+                descripcion: "El contenido que se guarda es el que te convierte en referencia. 15 carruseles con la identidad de TrabajarIAs: cómo usar la IA a tu favor en una búsqueda, errores de CV que cuestan entrevistas, señales de una oferta que no vale la pena."
+            },
+            {
+                icono: "fa-calendar-check",
+                titulo: "Un feed que nunca parece abandonado",
+                descripcion: "Nada le quita más credibilidad a un producto nuevo que un perfil con la última publicación de hace dos meses. 12 publicaciones de marca y comunidad para que cada semana haya movimiento, coherencia visual y mensaje claro."
+            },
+            {
+                icono: "fa-pen-nib",
+                titulo: "Guiones que conectan el dolor con tu solución",
+                descripcion: "No existe buen video sin buen guion. Cada pieza parte de una estructura pensada — hook, desarrollo y cierre — que une la frustración real de buscar empleo con lo que TrabajarIAs resuelve. Sin eso, el contenido entretiene pero no convierte."
+            },
+            {
+                icono: "fa-comment-dots",
+                titulo: "Copys que empujan a la acción",
+                descripcion: "El caption es la última oportunidad de convertir a alguien que ya se detuvo. Textos que aportan valor, refuerzan el mensaje y llevan a tu plataforma, con estructura y hashtags pensados para alcance dentro del nicho."
+            },
+            {
+                icono: "fa-image",
+                titulo: "Portadas que ganan el primer segundo",
+                descripcion: "La miniatura decide si alguien te ve o te pasa de largo. Cada video sale con portada diseñada, coherente con la marca y pensada para el clic — y para que tu grid completo se lea como el de una empresa seria."
+            }
+        ],
+
+        /* --- CÓMO TRABAJAMOS (proceso) --- */
+        proceso: {
+            eyebrow: "Cómo trabajamos",
+            titulo: 'Tú apruebas. <span class="text-gradient">Yo ejecuto.</span>',
+            intro: "Sin reuniones eternas ni cadenas de correos. Este es el ciclo, y se repite cada semana.",
+            pasos: [
+                {
+                    numero: "01",
+                    titulo: "Kickoff de 45 minutos",
+                    texto: "Una sola llamada al inicio: objetivos, tono, referencias y — sobre todo — qué <strong>no</strong> queremos. De ahí sale la línea editorial de los 90 días y no volvemos a discutirla."
+                },
+                {
+                    numero: "02",
+                    titulo: "Calendario mensual sobre la mesa",
+                    texto: "Antes de arrancar cada mes recibes el plan completo: qué se publica, qué día y con qué objetivo. Lo apruebas o lo ajustas, y a partir de ahí ya sabes exactamente qué esperar."
+                },
+                {
+                    numero: "03",
+                    titulo: "Guiones listos y grabación",
+                    texto: "Te llegan los guiones escritos. Los que van con tu cara los grabas en minutos con el celular siguiendo mis indicaciones; el resto lo produzco yo con material propio y diseño."
+                },
+                {
+                    numero: "04",
+                    titulo: "Edición, diseño y copys",
+                    texto: "Montaje, subtítulos, portadas, carruseles y textos de cada publicación. <strong>Tú no abres un solo programa.</strong>"
+                },
+                {
+                    numero: "05",
+                    titulo: "Publicación y aprendizaje",
+                    texto: "Se publica según el calendario y revisamos qué funcionó y qué no. Cada mes entra con más información que el anterior, y eso se nota en los resultados del Mes 03."
+                }
+            ]
+        },
+
+        /* --- COMPARATIVA DE INVERSIÓN (anclaje de precio) --- */
+        comparativa: {
+            eyebrow: "Contexto de mercado",
+            titulo: 'Lo mismo, <span class="text-gradient">a otro precio.</span>',
+            opciones: [
+                {
+                    titulo: "Agencia de social media en España",
+                    precio: "1.500 – 3.000 € / mes",
+                    detalle: "Alcance parecido, pero con oficina, cuentas y estructura que terminas pagando tú dentro de la factura."
+                },
+                {
+                    titulo: "Editor de video in-house",
+                    precio: "desde 1.800 € / mes",
+                    detalle: "Más cotizaciones sociales y equipo. Y edita: no te da guion, ni diseño, ni copys, ni criterio editorial."
+                },
+                {
+                    titulo: "Gian Visuals",
+                    precio: "599 € / mes",
+                    detalle: "Estándar de producción de agencia con estructura de freelance. El mismo criterio y la misma calidad, sin la factura de la oficina.",
+                    destacado: true
+                }
+            ]
+        },
+
+        /* --- INVERSIÓN --- */
+        inversion: {
+            etiqueta: "Inversión mensual",
+            montoMensual: "599 €",
+            porTexto: "EUR al mes · durante 3 meses",
+            totalTexto: 'Proyecto completo: <strong>3 meses · 1.797 €</strong>',
+            nota: "Incluye las 57 piezas del plan de 90 días: guion, dirección de grabación, edición, diseño, copys, portadas y publicación. Sin costos ocultos ni extras por revisión.",
+            // ↓ Edita esta fecha cada vez que envíes la propuesta (7 días desde el envío)
+            vigencia: "Precio y espacio en agenda reservados hasta el 27 de julio"
+        },
+
+        /* --- GARANTÍA / REVERSIÓN DE RIESGO --- */
+        garantia: {
+            icono: "fa-shield-halved",
+            titulo: "El primer mes es tu prueba, no tu compromiso",
+            texto: "Al cerrar el Mes 01 tienes el trabajo completo en la mano y publicándose: 10 Reels, 5 carruseles y 4 publicaciones. Si en ese punto el resultado no te convence, <strong>no continúas y no pagas los meses 2 y 3</strong>. Sin discusión y sin penalización. Yo asumo el riesgo de demostrarlo; tú solo decides si esto sigue."
+        },
+
+        /* --- OBJECIONES --- */
+        objeciones: {
+            eyebrow: "Lo que seguramente estás pensando",
+            titulo: 'Las tres preguntas <span class="text-gradient">que yo también haría.</span>',
+            items: [
+                {
+                    pregunta: "«599 € al mes es bastante para una empresa que apenas está empezando.»",
+                    respuesta: "Lo es, y por eso el número está calculado para tu etapa y no para una agencia con oficina en Madrid. Pero la pregunta útil no es cuánto cuesta el contenido: es cuánto cuesta que dentro de seis meses <strong>otro</strong> sea el nombre que la gente asocia con «buscar empleo con IA». Ese lugar no se recupera después con más presupuesto."
+                },
+                {
+                    pregunta: "«¿Y si publicamos 90 días y no pasa nada?»",
+                    respuesta: "Por eso el Mes 01 tiene puerta de salida: si el trabajo no te convence, no sigues y no pagas el resto. Y quiero ser honesto sobre lo que compras aquí: compras presencia constante, criterio editorial y calidad de producción, que es lo que hace posible el crecimiento. <strong>Ningún proveedor serio te va a garantizar un número de seguidores</strong>, y si alguien te lo garantiza, desconfía de todo lo demás que te diga."
+                },
+                {
+                    pregunta: "«Tú estás en Colombia y nosotros operamos en España.»",
+                    respuesta: "Correcto, y precisamente por eso este nivel de producción te cuesta 599 € y no 2.000. Trabajamos con siete horas de diferencia, lo que en la práctica significa que el contenido está listo y esperándote cuando empieza tu jornada. Ya viste el video: <strong>la distancia no se nota en el resultado, se nota en la factura.</strong>"
+                }
+            ]
+        },
+
+        /* --- TÉRMINOS Y CONDICIONES --- */
+        terminos: [
+            { icono: "fa-wallet",       titulo: "Forma de pago",  texto: "Tres pagos de 599 €, uno al inicio de cada mes de servicio. Sin permanencia: el Mes 01 decide si hay Mes 02." },
+            { icono: "fa-truck-fast",   titulo: "Entregas",       texto: "Contenido entregado y programado semana a semana. Siempre sabes qué sale y cuándo, con el calendario aprobado por ti de antemano." },
+            { icono: "fa-arrows-rotate",titulo: "Revisiones",     texto: "Ninguna pieza se publica sin tu visto bueno. Cada una incluye su ronda de ajustes, y nunca he dejado salir algo con lo que el cliente no estuviera conforme." },
+            { icono: "fa-bolt",         titulo: "Inicio",         texto: "Arrancamos dentro de los 5 días hábiles tras la confirmación. La primera pieza de TrabajarIAs se publica en la semana 1." }
+        ],
+
+        /* --- CTA FINAL --- */
+        ctaFinal: {
+            titulo: "Empecemos el Mes 01",
+            texto: "Confírmame por WhatsApp y en menos de 24 horas te envío el enlace de pago y agendamos el kickoff de 45 minutos. La primera publicación de TrabajarIAs puede estar en la calle esta misma semana.",
+            nota: "Un mensaje y arrancamos. Si te queda alguna duda, escríbeme igual y la resolvemos hoy."
+        }
+    };
+    /* ================================================================
+       ███  FIN DE LA ZONA EDITABLE  ███
+       (de aquí para abajo es el motor de la plantilla)
+       ================================================================ */
+
+
+    /* ---------- RENDER ---------- */
+    (function render() {
+        const C = COTIZACION;
+        const waMsg = encodeURIComponent("Hola Gian, quiero confirmar la propuesta que me enviaste para TrabajarIAs.");
+        const waLink = "https://wa.me/" + C.marca.whatsapp + "?text=" + waMsg;
+
+        // Botones de WhatsApp
+        ["nav-wa-btn", "hero-wa-btn", "investment-wa-btn", "final-wa-btn"].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.addEventListener("click", () => window.open(waLink, "_blank"));
+        });
+
+        // HERO
+        document.getElementById("hero-title").innerHTML = C.hero.titulo.map(part => {
+            return part.morph
+                ? '<span class="morph-wrap"><span class="morph-text text-gradient">' + part.texto + '</span></span>'
+                : '<span>' + part.texto + '</span>';
+        }).join("<br>");
+        document.getElementById("hero-desc").textContent = C.hero.descripcion;
+        document.getElementById("platform-chips").innerHTML = C.hero.plataformas.map(p =>
+            '<span class="platform-chip"><i class="' + p.icono + '"></i>' + p.nombre + '</span>'
+        ).join("");
+        document.getElementById("hero-meta").innerHTML =
+            '<span>Preparado para <strong>' + C.hero.preparadoPara + '</strong></span>' +
+            '<span>Por <strong>Gian Visuals</strong></span>';
+
+        // DIAGNÓSTICO
+        document.getElementById("diag-eyebrow").textContent = C.diagnostico.eyebrow;
+        document.getElementById("diag-title").innerHTML = C.diagnostico.titulo;
+        document.getElementById("diag-intro").innerHTML = C.diagnostico.intro;
+        document.getElementById("diag-grid").innerHTML = C.diagnostico.puntos.map((d, i) =>
+            '<div class="diag-card reveal reveal-up delay-' + ((i % 3) + 1) + '">' +
+              '<div class="diag-icon"><i class="fas ' + d.icono + '"></i></div>' +
+              '<h3>' + d.titulo + '</h3>' +
+              '<p>' + d.texto + '</p>' +
+            '</div>'
+        ).join("");
+
+        // VIDEO
+        const vid = document.getElementById("showcase-video");
+        vid.src = C.video.archivo;
+        if (C.video.poster) vid.poster = C.video.poster;
+        document.getElementById("video-eyebrow").textContent = C.video.eyebrow;
+        document.getElementById("video-title").innerHTML = C.video.titulo;
+        document.getElementById("video-subtitle").textContent = C.video.subtitulo;
+        document.getElementById("video-caption").innerHTML = C.video.tags.map(t =>
+            t === "→" ? '<i class="fas fa-arrow-right-long" style="color:#7DD3FC;"></i>' : '<span class="tag">' + t + '</span>'
+        ).join("");
+
+        const overlay = document.getElementById("video-overlay");
+        overlay.addEventListener("click", () => { vid.play(); });
+        vid.addEventListener("play",  () => overlay.classList.add("hidden"));
+        vid.addEventListener("pause", () => { if (!vid.seeking && vid.currentTime > 0 && !vid.ended) return; });
+
+        // STATS (contadores animados)
+        document.getElementById("stats-strip").innerHTML = C.stats.map((s, i) =>
+            '<div class="stat-box reveal reveal-up delay-' + ((i % 4) + 1) + '">' +
+              '<span class="stat-num" data-target="' + s.numero + '" data-suffix="' + (s.sufijo || '') + '">0</span>' +
+              '<span class="stat-label">' + s.label + '</span>' +
+            '</div>'
+        ).join("");
+
+        // CLIENTE
+        const photo = document.getElementById("client-photo");
+        photo.src = C.cliente.foto;
+        photo.alt = "Logo de " + C.cliente.nombreCorto;
+        document.getElementById("client-card-name").textContent = C.cliente.nombreCorto;
+        document.getElementById("client-card-role").textContent = C.cliente.especialidad;
+        document.getElementById("client-data").innerHTML = C.cliente.datos.map(d =>
+            '<div class="row"><span class="label">' + d.label + '</span><span class="value">' + d.valor + '</span></div>'
+        ).join("");
+
+        // PLAN MES A MES
+        document.getElementById("plan-subtitle").textContent = C.plan.subtitulo;
+        document.getElementById("months-grid").innerHTML = C.plan.meses.map((m, i) =>
+            '<div class="month-card reveal reveal-up delay-' + ((i % 3) + 1) + '">' +
+              '<span class="month-num">' + m.numero + '</span>' +
+              '<h3>' + m.titulo + '</h3>' +
+              '<p class="month-focus">' + m.enfoque + '</p>' +
+              '<div class="month-deliverables">' +
+                m.entregables.map(e =>
+                  '<div class="item"><i class="fas ' + e.icono + '"></i><div>' + e.texto + '</div></div>'
+                ).join("") +
+              '</div>' +
+            '</div>'
+        ).join("");
+
+        // Nota "marca humana"
+        const hn = C.plan.notaHumana;
+        if (hn) document.getElementById("human-note").innerHTML =
+            '<div class="hn-icon"><i class="fas ' + hn.icono + '"></i></div>' +
+            '<div><h4>' + hn.titulo + '</h4><p>' + hn.texto + '</p></div>';
+
+        // SOLUCIONES
+        document.getElementById("solutions-grid").innerHTML = C.soluciones.map((s, i) => {
+            const delay = "delay-" + ((i % 3) + 1);
+            return '<div class="solution-card reveal reveal-up ' + delay + '">' +
+                     '<span class="solution-num">0' + (i + 1) + '</span>' +
+                     '<div class="solution-icon"><i class="fas ' + s.icono + '"></i></div>' +
+                     '<h3>' + s.titulo + '</h3>' +
+                     '<p>' + s.descripcion + '</p>' +
+                   '</div>';
+        }).join("");
+
+        // PROCESO
+        document.getElementById("proceso-eyebrow").textContent = C.proceso.eyebrow;
+        document.getElementById("proceso-title").innerHTML = C.proceso.titulo;
+        document.getElementById("proceso-intro").textContent = C.proceso.intro;
+        document.getElementById("process-list").innerHTML = C.proceso.pasos.map(p =>
+            '<div class="process-step">' +
+              '<div class="ps-num">' + p.numero + '</div>' +
+              '<div><h4>' + p.titulo + '</h4><p>' + p.texto + '</p></div>' +
+            '</div>'
+        ).join("");
+
+        // COMPARATIVA
+        document.getElementById("compare-eyebrow").textContent = C.comparativa.eyebrow;
+        document.getElementById("compare-title").innerHTML = C.comparativa.titulo;
+        document.getElementById("compare-grid").innerHTML = C.comparativa.opciones.map(o =>
+            '<div class="compare-card' + (o.destacado ? ' highlight' : '') + '">' +
+              '<span class="cc-label">' + o.titulo + '</span>' +
+              '<span class="cc-price' + (o.destacado ? ' text-gradient' : '') + '">' + o.precio + '</span>' +
+              '<p class="cc-detail">' + o.detalle + '</p>' +
+            '</div>'
+        ).join("");
+
+        // INVERSIÓN
+        document.getElementById("investment-label").textContent = C.inversion.etiqueta;
+        document.getElementById("investment-amount").textContent = C.inversion.montoMensual;
+        document.getElementById("investment-per").textContent = C.inversion.porTexto;
+        document.getElementById("investment-total").innerHTML = '<i class="fas fa-circle-check" style="color:#7DD3FC;"></i> ' + C.inversion.totalTexto;
+        document.getElementById("investment-note").textContent = C.inversion.nota;
+        document.getElementById("investment-validity").innerHTML =
+            '<i class="fas fa-clock"></i> ' + C.inversion.vigencia;
+
+        // GARANTÍA
+        document.getElementById("guarantee").innerHTML =
+            '<div class="g-icon"><i class="fas ' + C.garantia.icono + '"></i></div>' +
+            '<div><h4>' + C.garantia.titulo + '</h4><p>' + C.garantia.texto + '</p></div>';
+
+        // OBJECIONES
+        document.getElementById("obj-eyebrow").textContent = C.objeciones.eyebrow;
+        document.getElementById("obj-title").innerHTML = C.objeciones.titulo;
+        document.getElementById("objections-list").innerHTML = C.objeciones.items.map((o, i) =>
+            '<div class="objection-card reveal reveal-up delay-' + ((i % 3) + 1) + '">' +
+              '<span class="obj-q">' + o.pregunta + '</span>' +
+              '<p class="obj-a">' + o.respuesta + '</p>' +
+            '</div>'
+        ).join("");
+
+        // TÉRMINOS
+        document.getElementById("terms-grid").innerHTML = C.terminos.map((t, i) => {
+            const delay = "delay-" + ((i % 4) + 1);
+            return '<div class="term-card reveal reveal-up ' + delay + '">' +
+                     '<div class="term-icon"><i class="fas ' + t.icono + '"></i></div>' +
+                     '<h4>' + t.titulo + '</h4>' +
+                     '<p>' + t.texto + '</p>' +
+                   '</div>';
+        }).join("");
+
+        // CTA FINAL
+        document.getElementById("final-cta-title").textContent = C.ctaFinal.titulo;
+        document.getElementById("final-cta-text").textContent = C.ctaFinal.texto;
+        document.getElementById("final-cta-note").textContent = C.ctaFinal.nota;
+
+        // FOOTER
+        document.getElementById("footer-contact").innerHTML =
+            '<a href="tel:' + C.marca.telefono.replace(/\s/g, "") + '"><i class="fas fa-phone"></i> ' + C.marca.telefono + '</a>' +
+            '<a href="mailto:' + C.marca.email + '"><i class="fas fa-envelope"></i> ' + C.marca.email + '</a>' +
+            '<a href="' + waLink + '" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>';
+        document.getElementById("copyright").innerHTML =
+            "&copy; " + new Date().getFullYear() + " Gian Visuals. Todos los derechos reservados.";
+    })();
+
+
+    /* ---------- MENÚ MÓVIL ---------- */
+    const menuToggle = document.getElementById('mobile-menu');
+    const navLinks = document.querySelector('.nav-links');
+    menuToggle.onclick = () => {
+        navLinks.classList.toggle('active');
+        menuToggle.querySelector('i').classList.toggle('fa-times');
+    };
+    function closeMenu() {
+        navLinks.classList.remove('active');
+        const icon = menuToggle.querySelector('i');
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+    }
+
+
+    /* ---------- REVEAL ON SCROLL ---------- */
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+    }, { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+
+    /* ---------- CONTADORES ANIMADOS ---------- */
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            const el = entry.target;
+            counterObserver.unobserve(el);
+            const target = parseInt(el.dataset.target, 10);
+            const suffix = el.dataset.suffix || '';
+            const dur = 1400;
+            const start = performance.now();
+            (function tick(now) {
+                const p = Math.min((now - start) / dur, 1);
+                const eased = 1 - Math.pow(1 - p, 3);
+                el.textContent = Math.round(target * eased) + suffix;
+                if (p < 1) requestAnimationFrame(tick);
+            })(start);
+        });
+    }, { threshold: 0.4 });
+    document.querySelectorAll('.stat-num').forEach(el => counterObserver.observe(el));
+
+
+    /* ---------- NAV SCROLL + PARALLAX + BARRA DE PROGRESO ---------- */
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const navEl = document.querySelector('nav');
+        if (scrolled > 60) navEl.classList.add('scrolled');
+        else navEl.classList.remove('scrolled');
+
+        document.querySelectorAll('[data-speed]').forEach(el => {
+            const speed = el.getAttribute('data-speed');
+            el.style.transform = `translateY(${scrolled * speed}px)`;
+        });
+
+        const docH = document.documentElement.scrollHeight - window.innerHeight;
+        document.getElementById('progress-bar').style.width = (docH > 0 ? (scrolled / docH) * 100 : 0) + '%';
+    });
+
+
+    /* ---------- TILT EN LA TARJETA DEL CLIENTE ---------- */
+    const card = document.getElementById('tiltCard');
+    const wrapper = document.querySelector('.id-card-wrapper');
+    if (card && wrapper) {
+        wrapper.onmousemove = (e) => {
+            const rect = wrapper.getBoundingClientRect();
+            const x = (e.clientX - rect.left) / rect.width - 0.5;
+            const y = (e.clientY - rect.top) / rect.height - 0.5;
+            card.style.transform = `perspective(1000px) rotateY(${x * 24}deg) rotateX(${-y * 24}deg) scale(1.04)`;
+            card.style.animation = 'none';
+        };
+        wrapper.onmouseleave = () => {
+            card.style.transform = 'rotateY(0) rotateX(0)';
+            card.style.animation = 'floatCard 6s ease-in-out infinite';
+        };
+    }
+
+
+    /* ---------- PARTÍCULAS 3D (tonos azul/cian TrabajarIAs) ---------- */
+    window.addEventListener('load', () => {
+        if (typeof THREE === 'undefined') return;
+        const canvas = document.getElementById('particles-canvas');
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+        const geometry = new THREE.BufferGeometry();
+        const vertices = [], colors = [];
+        for (let i = 0; i < 2000; i++) {
+            vertices.push(
+                Math.random() * 2000 - 1000,
+                Math.random() * 2000 - 1000,
+                Math.random() * 2000 - 1000
+            );
+            const color = new THREE.Color();
+            // Hues entre 0.52 (cian) y 0.72 (violeta) — paleta TrabajarIAs
+            color.setHSL(0.52 + Math.random() * 0.2, 0.85, 0.62);
+            colors.push(color.r, color.g, color.b);
+        }
+        geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+        geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+
+        const material = new THREE.PointsMaterial({
+            size: 2, vertexColors: true, transparent: true, opacity: 0.8,
+            blending: THREE.AdditiveBlending
+        });
+        const particles = new THREE.Points(geometry, material);
+        scene.add(particles);
+        camera.position.z = 500;
+
+        let mouseX = 0, mouseY = 0;
+        document.addEventListener('mousemove', (e) => {
+            mouseX = (e.clientX / window.innerWidth) * 2 - 1;
+            mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
+        });
+
+        function animate() {
+            requestAnimationFrame(animate);
+            particles.rotation.x += 0.0003;
+            particles.rotation.y += 0.0005;
+            camera.position.x += (mouseX * 50 - camera.position.x) * 0.05;
+            camera.position.y += (mouseY * 50 - camera.position.y) * 0.05;
+            camera.lookAt(scene.position);
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    });
+    </script>
+</body>
+</html>
